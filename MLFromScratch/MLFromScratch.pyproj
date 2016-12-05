@@ -5,7 +5,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>020a700a-41bd-47e6-82bb-33a89dcc9155</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>MLFromScratch.py</StartupFile>
+    <StartupFile>
+    </StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,7 +23,12 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="MLFromScratch.py" />
+    <Compile Include="LinearRegression.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Test_LinearRegression.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
