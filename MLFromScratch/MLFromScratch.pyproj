@@ -5,8 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>020a700a-41bd-47e6-82bb-33a89dcc9155</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>
-    </StartupFile>
+    <StartupFile>LinearRegression.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
