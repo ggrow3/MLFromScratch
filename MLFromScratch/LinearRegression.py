@@ -1,3 +1,5 @@
+from math import sqrt
+
 def mean(values):
     return sum(values) / float(len(values))
 
@@ -23,6 +25,7 @@ def covariance(x, mean_x, y, mean_y):
     covar = 0.0
     for i in range(len(x)):
         covar += (x[i] - mean_x) * (y[i] - mean_y)
+    return covar
 
 covar = covariance(x, mean_x, y,mean_y)
 print('Covariance: %.3f' % (covar))
@@ -37,3 +40,36 @@ def coefficients(dataset):
 
 b0,b1 = coefficients(dataset)
 print('Coefficients: B0%.3f, B1=%.3f' % (b0,b1))
+
+def simple_linear_regression(train, test):
+    predictions = list()
+    b0,b1 = coefficients(train)
+    for row in test:
+        yhat = b0 + b1 * row[0]
+        predictions.append(yhat)
+    return predictions
+
+def rsme_metric(actual, predicted):
+    sum_error = 0.0
+    for i in range(len(actual)):
+        prediction_error = predicted[i] - actual[i]
+        sum_error += (prediction_error ** 2)
+    mean_error = sum_error / float(len(actual))
+    return sqrt(mean_error)
+
+def evaluate_algorithm(dataset, algorithm):
+    test_set = list()
+    for row in dataset:
+        row_copy = list(row)
+        row_copy[-1] = None
+        test_set.append(row_copy)
+    predicted = algorithm(dataset, test_set)
+    print(predicted)
+    actual = [row[-1] for row in dataset]
+    rmse = rmse_metric(actual, predicted)
+    return rmse
+
+
+
+
+
